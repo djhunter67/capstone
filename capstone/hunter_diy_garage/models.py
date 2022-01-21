@@ -1,5 +1,5 @@
 from django.db import models
 
-class BayOne(models.Model):
+class AutoBays(models.Model):
 
     hours = models.BigIntegerField()
