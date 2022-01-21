@@ -37,5 +37,31 @@ The footer will have information regarding the author of the site as well as cli
 - OTHER PAGES
 There are a dozen pages that could possibly be visited.  
 
+Can only checkout tools if have a reservation. 
+
 # Data Model
 ![DB visual](hunter_diy_garage/static/img/DB_chart.png)
+
+# Timeline
+
+- [ ] Week 1
+    - [] Create DB
+    - [] Create all HTML pages
+    - [] Input all styling
+    
+- [ ] Week 2
+    - [] Complete Hero section
+    - [] Create DB Models 
+    - [] All links functional
+
+- [ ] Week 3
+    - [] JS all the forms
+    - [] User login & logout functional
+    - [] Backend fully functional 
+
+- [ ] Week 4
+    - [] Publish and self host (already purchased domain)
+
+- [ ] After
+    - [] Use a Calendar for picking the dates
+    - [] 
