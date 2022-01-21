@@ -64,4 +64,3 @@ Can only checkout tools if have a reservation.
 
 - [ ] After
     - [ ] Use a Calendar for picking the dates
-    - [ ] 
