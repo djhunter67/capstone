@@ -45,23 +45,23 @@ Can only checkout tools if have a reservation.
 # Timeline
 
 - [ ] Week 1
-    - [] Create DB
-    - [] Create all HTML pages
-    - [] Input all styling
+    - [ ] Create DB
+    - [ ] Create all HTML pages
+    - [ ] Input all styling
     
 - [ ] Week 2
-    - [] Complete Hero section
-    - [] Create DB Models 
-    - [] All links functional
+    - [ ] Complete Hero section
+    - [ ] Create DB Models 
+    - [ ] All links functional
 
 - [ ] Week 3
-    - [] JS all the forms
-    - [] User login & logout functional
-    - [] Backend fully functional 
+    - [ ] JS all the forms
+    - [ ] User login & logout functional
+    - [ ] Backend fully functional 
 
 - [ ] Week 4
-    - [] Publish and self host (already purchased domain)
+    - [ ] Publish and self host (already purchased domain)
 
 - [ ] After
-    - [] Use a Calendar for picking the dates
-    - [] 
+    - [ ] Use a Calendar for picking the dates
+    - [ ] 
