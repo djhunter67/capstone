@@ -40,7 +40,7 @@ There are a dozen pages that could possibly be visited.
 Can only checkout tools if have a reservation. 
 
 # Data Model
-![DB visual](capstone/hunter_diy_garage/static/img/DB_chart.png)
+![DB visual](capstone/capstone/static/img/DB_chart.png)
 
 # Timeline
 
