@@ -26,7 +26,7 @@ class Tool(models.Model):
     cost = models.DecimalField(default=0.0, max_digits=3, decimal_places=2)
     make = models.CharField(max_length=20)
     checked_out = models.DateTimeField(auto_now_add=True)
-    num_times_checked_out = models.SmallIntegerField()
+    num_times_checked_out = models.SmallIntegerField(default=0)
 
 class NeedleScaler(Tool):
 
