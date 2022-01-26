@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9e458748cc.js" crossorigin="anonymous"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
+    <title>Hunter DIY Garage</title>
+</head>
+
+<body>
+    {% block header %}
+        
+    <!-- UNIVERSAL HEADER -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="https://christerpher.github.io">
+                <img src="{% static 'img/Logo.png' %}">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="{% url 'hunter_diy_garage:index' %}">
+                    Home
+                </a>
+                <a class="navbar-item" href="" Account </a>
+
+                    <div class="navbar-item has-dropdown is-hoverable">
+                        <a class="navbar-link">
+                            More
+                        </a>
+
+                        <div class="navbar-dropdown">
+                            <a class="navbar-item" href="">
+                                Create
+                            </a>
+                            <a class="navbar-item" href="">
+                                Search
+                            </a>
+                            <a class="navbar-item" href="">
+                                Edit
+                            </a>
+                            <hr class="navbar-divider">
+                            <a class="navbar-item" href="">
+                                Delete
+                            </a>
+                        </div>
+                    </div>
+            </div>
+
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <!-- <a href="" class="button is-warning">
+                            Logout
+                        </a> -->
+                        <a class="button is-primary" href="" <strong>Register</strong>
+                        </a>
+                        <a class="button is-light" href="">Log in </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    {% endblock header %}
+
+   
+    <!-- MAIN BODY -->
+    <div class="columns">
+        <div class="column is-one-fifth"></div>
+        <div class="column">
+            {% block content %}
+
+            {% endblock content %}
+        </div>
+        <div class="column is-one-fifth"></div>
+    </div>
+
+    <!-- UNIVERSAL FOOTER -->
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <strong>Hunter Hang Out</strong> by <a href="#">Christerpher Hunter</a>.
+            </p>
+        </div>
+    </footer>
+</body>
+
+</html>
