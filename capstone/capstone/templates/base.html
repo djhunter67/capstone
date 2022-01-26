@@ -17,7 +17,7 @@
     <!-- UNIVERSAL HEADER -->
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div class="navbar-brand">
-            <a class="navbar-item" href="https://christerpher.github.io">
+            <a class="navbar-item" href="localhost:8000">
                 <img src="{% static 'img/Logo.png' %}">
             </a>
 
@@ -34,7 +34,7 @@
                 <a class="navbar-item" href="{% url 'hunter_diy_garage:index' %}">
                     Home
                 </a>
-                <a class="navbar-item" href="" Account </a>
+                <a class="navbar-item" href="{% url 'diy_users:profile' %}">Account </a>
 
                     <div class="navbar-item has-dropdown is-hoverable">
                         <a class="navbar-link">

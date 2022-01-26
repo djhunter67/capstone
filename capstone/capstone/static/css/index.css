@@ -7845,3 +7845,10 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
+
+.bg-hero {
+  background-image: url(../img/row_of_lifts.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position-y: -55rem;
+  background-color: none; }
