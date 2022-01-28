@@ -13,16 +13,6 @@ def about(request):
     return render(request, "about.html")
 
 
-def login(request):
-
-    return render(request, "login.html")
-
-
-def register(request):
-
-    return render(request, "register.html")
-
-
 def blog(request):
 
     return render(request, "blog.html")
@@ -56,11 +46,6 @@ def layout(request):
 def cancellation(request):
 
     return render(request, "cancellation.html")
-
-
-def logout(request):
-
-    return render(request, "logout.html")
 
 
 def price(request):

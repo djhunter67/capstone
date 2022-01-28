@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hunter_diy_garage',
     'diy_users',
+    'blog',
 ]
 
 MIDDLEWARE = [
