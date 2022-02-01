@@ -36,13 +36,14 @@ def create(request):
 def search(request):
     """form presented to search for a blog"""
 
+    return render(request, "search.html")
+
 
 # @login_required
 def edit(request, blog_id):
     """form for editing an existing blog"""
 
-    # blog_post = get_object_or_404()
-
+    return render(request, "edit.html")
 
 # @login_required
 def delete(request, blog_id):

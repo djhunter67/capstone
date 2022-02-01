@@ -1,7 +1,8 @@
 from django.db import models
 from diy_users.models import DIYUsers
-
+from django.contrib import admin
 # Create your models here.
+
 
 class BlogPost(models.Model):
 
@@ -9,7 +10,8 @@ class BlogPost(models.Model):
 
     body = models.TextField(max_length=200)
 
-    user = models.ForeignKey(DIYUsers, on_delete=models.CASCADE, related_name='blog_posts')
+    user = models.ForeignKey(
+        DIYUsers, on_delete=models.CASCADE, related_name='blog_posts')
 
     public = models.BooleanField(default=False)
 
@@ -17,5 +19,9 @@ class BlogPost(models.Model):
 
     date_edited = models.DateTimeField(auto_now=True)
 
-    def __str__(self) -> str:
-        return self.title
+    # def __str__(self) -> str:
+    #     return self.user
+
+    
+
+

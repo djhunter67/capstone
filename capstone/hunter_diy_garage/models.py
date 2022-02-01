@@ -10,9 +10,9 @@ class AutoBay(models.Model):
 class Reservation(models.Model):
 
     electricity_used = models.DecimalField(
-        default=0.0, max_digits=3, decimal_places=2)
+        default=0.0, max_digits=5, decimal_places=2)
     hours_used = models.DecimalField(
-        default=0.0, max_digits=3, decimal_places=2)
+        default=0.0, max_digits=5, decimal_places=2)
     auto_bay_id = models.ForeignKey(
         AutoBay, on_delete=models.SET_NULL, null=True, related_name="reservations")
     diy_user_id = models.ForeignKey(
@@ -23,7 +23,7 @@ class Reservation(models.Model):
 class Tool(models.Model):
 
     name = models.CharField(max_length=20)
-    cost = models.DecimalField(default=0.0, max_digits=3, decimal_places=2)
+    cost = models.DecimalField(default=0.0, max_digits=6, decimal_places=2)
     make = models.CharField(max_length=20)
     checked_out = models.DateTimeField(auto_now_add=True)
     num_times_checked_out = models.SmallIntegerField(default=0)

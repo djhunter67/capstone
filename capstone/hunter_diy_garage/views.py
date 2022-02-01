@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .models import Tool
 
 # Create your views here.
 
@@ -24,8 +25,12 @@ def reservation(request):
 
 
 def tools(request):
+    
+    context = {
+        "tools": Tool.objects.all()
+    }
 
-    return render(request, "tools.html")
+    return render(request, "tools.html", context)
 
 
 def bays(request):
@@ -55,4 +60,6 @@ def price(request):
 
 def rules(request):
 
-    return render(request, "rules.html")
+    ruleset = ["Be Kind", "Do Unto Others", "Love Thy Neighbor"]
+
+    return render(request, "rules.html", {"ruleset": ruleset})

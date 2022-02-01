@@ -4,5 +4,12 @@
 {% block content %}
 
 <h1 class="title">Rules</h1>
+
+{% for rules in ruleset %}
+
+<strong>{{rules}}</strong>
+<br>
+
+{% endfor %}
     
 {% endblock content %}
