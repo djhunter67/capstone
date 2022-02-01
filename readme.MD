@@ -45,14 +45,14 @@ Can only checkout tools if have a reservation.
 # Timeline
 
 - [ ] Week 1
-    - [ ] Create DB
-    - [ ] Create all HTML pages
+    - [X] Create DB
+    - [X] Create all HTML pages
     - [ ] Input all styling
     
 - [ ] Week 2
-    - [ ] Complete Hero section
-    - [ ] Create DB Models 
-    - [ ] All links functional
+    - [X] Complete Hero section
+    - [X] Create DB Models 
+    - [X] All links functional
 
 - [ ] Week 3
     - [ ] JS all the forms
