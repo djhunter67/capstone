@@ -1,4 +1,4 @@
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import get_list_or_404, get_object_or_404, redirect, render
 from django.contrib.auth.decorators import login_required
 from blog.models import BlogPost
 from django.urls import reverse
@@ -7,9 +7,12 @@ from django.urls import reverse
 
 
 def blog(request):
+    print("something")
+    if request.method == 'GET':
 
-    all_posts = BlogPost.objects.all()
-    return render(request, "blog.html", {"posts": all_posts})
+        all_posts = BlogPost.objects.all()
+        print(all_posts)
+        return render(request, "blog.html", {"posts": all_posts})
 
 
 @login_required
@@ -27,7 +30,7 @@ def create(request):
     new_post.body = form["content"]
     new_post.save()
 
-    return redirect(reverse("users_handler:profile"))
+    return redirect(reverse("diy_users:profile"))
 
 
 def search(request):
@@ -48,4 +51,4 @@ def delete(request, blog_id):
     blog = get_object_or_404(BlogPost, id=blog_id)
     blog.delete()
 
-    return redirect(reverse('users_handler:profile'))
+    return redirect(reverse('diy_users:profile'))

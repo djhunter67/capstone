@@ -7850,5 +7850,5 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-image: url(../img/row_of_lifts.jpg);
   background-repeat: no-repeat;
   background-size: cover;
-  background-position-y: -55rem;
+  background-position: 50% 50%;
   background-color: none; }

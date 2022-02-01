@@ -38,7 +38,7 @@
                             <!-- <span>About</span> -->
                         </a>
                         {% if request.user.is_authenticated %}
-                        <a href="{% url 'diy_users:logout' %}" class="button is-warning">
+                        <a href="{% url 'diy_users:logout' %}" class="navbar-item is-warning">
                             <span class="icon">
                                 <i class="fas fa-sign-out-alt" aria-hidden="true"></i>
                             </span>
@@ -80,10 +80,11 @@
 
     <!-- Hero footer: will stick at the bottom -->
     <div class="hero-foot">
+        {% block other %}
         <nav class="tabs">
             <div class="container">
                 <ul>
-                    <li class="is-active"><a href="{% url 'hunter_diy_garage:blog' %}">Chat Room</a></li>
+                    <li class="is-active"><a href="{% url 'blog:blog' %}">Chat Room</a></li>
                     <li><a href="{% url 'hunter_diy_garage:reservation' %}">Reservations</a></li>
                     <li><a href="{% url 'hunter_diy_garage:tools' %}">Special Tools</a></li>
                     <li><a href="{% url 'hunter_diy_garage:bays' %}">Bay Details</a></li>
@@ -93,7 +94,11 @@
                 </ul>
             </div>
         </nav>
+        {% endblock other %}
     </div>
+    {% block footer %}
+        
+    {% endblock footer %}
 </section>
 {% endblock header %}
 

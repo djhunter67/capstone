@@ -16,11 +16,13 @@ class UserForms(forms.ModelForm):
 
         # Customize the rendered HTML
         widgets = {
-            "first_name": forms.TextInput(attrs={'class': 'input'}),
-            "last_name": forms.TextInput(attrs={'class': ' input'}),
+            "first_name": forms.TextInput(attrs={'class': 'input', 'placeholder': 'First Name'}),
+            "last_name": forms.TextInput(attrs={'class': ' input', 'placeholder': 'Last Name'}),
+            "phone_number": forms.TextInput(attrs={'class': ' input', 'placeholder': '5555555555', 'type': 'tel', 'pattern': "\d{10}"}),
             "username": forms.TextInput(attrs={'class': 'input', 'placeholder': 'Username'}),
             "password": forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Password'}),
             "avatar": forms.FileInput(attrs={'class': 'control file has-name is-right'}),
+            "email": forms.EmailInput(attrs={'class': 'input', 'placeholder': 'Email', 'type':'email'}),
         }
 
 
@@ -57,6 +59,10 @@ class UserCreationsForm(UserForms):
 
         fields = [
             "username",
+            "email",
+            "first_name",
+            "last_name",
+            "phone_number",
             "password",
-            "re_password"
+            "re_password",
         ]

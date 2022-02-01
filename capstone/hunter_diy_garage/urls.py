@@ -7,7 +7,6 @@ app_name = 'hunter_diy_garage'
 urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),    
-    path('blog/', views.blog, name='blog'),
     path('reservation/', views.reservation, name='reservation'),
     path('tools/', views.tools, name='tools'),
     path('bays/', views.bays, name='bays'),

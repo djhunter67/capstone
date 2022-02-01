@@ -1,21 +1,27 @@
 from django.contrib.auth import authenticate, login as django_login, logout as django_logout
-from django.shortcuts import render, redirect, reverse, get_list_or_404
-from blog.models import BlogPost
+from django.shortcuts import render, redirect
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required
 from capstone.forms import UserAuthorizeForm, UserCreationsForm
 from colorama import Fore as F
+
 
 R = F.RESET
 
 
+@login_required
 def profile(request):
     """form for logging a user in; redirect to /profile/ after logging in"""
 
     if request.method == 'GET':
 
-        user_posts = get_list_or_404(
-            BlogPost.objects.filter(user=request.user))
+        user_data = request.user
 
-        return render(request, "profile.html", {"user_posts": user_posts})
+        context = {
+            "user_data": user_data,
+        }
+
+        return render(request, "profile.html", context)
 
 
 def login(request):
@@ -61,10 +67,10 @@ def register(request):
         new_user.set_password(form.cleaned_data['password'])
         new_user.save()
 
-        context = {
-            "form": UserCreationsForm()
-        }
-        return render(request, 'profile.html', context)
+        # context = {
+        #     "form": UserCreationsForm()
+        # }
+        return redirect(reverse('diy_users:profile'))
 
     context = {
         "form": UserCreationsForm(),
@@ -78,4 +84,4 @@ def register(request):
 def logout(request):
 
     django_logout(request)
-    return redirect(reverse("blog:index"))
+    return redirect(reverse("hunter_diy_garage:index"))
