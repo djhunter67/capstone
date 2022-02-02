@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'hunter_diy_garage',
     'diy_users',
     'blog',
+    'reservations',
 ]
 
 MIDDLEWARE = [

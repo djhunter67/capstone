@@ -19,13 +19,8 @@ def blog(request):
     return render(request, "blog.html")
 
 
-def reservation(request):
-
-    return render(request, "reservation.html")
-
-
 def tools(request):
-    
+
     context = {
         "tools": Tool.objects.all()
     }

@@ -7846,6 +7846,26 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem; }
 
+@keyframes decrement-prev {
+  from {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes decrement-next {
+  from {
+    opacity: 0;
+    transform: translateY(-50px); } }
+
+@keyframes increment-prev {
+  from {
+    opacity: 1;
+    transform: translateY(0); } }
+
+@keyframes increment-next {
+  from {
+    opacity: 0;
+    transform: translateY(50px); } }
+
 .bg-hero {
   background-image: url(../img/row_of_lifts.jpg);
   background-repeat: no-repeat;

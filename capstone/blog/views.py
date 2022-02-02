@@ -10,7 +10,7 @@ def blog(request):
     print("something")
     if request.method == 'GET':
 
-        all_posts = BlogPost.objects.all()
+        all_posts = BlogPost.objects.order_by('-date_created')
         print(all_posts)
         return render(request, "blog.html", {"posts": all_posts})
 

@@ -107,16 +107,51 @@
             </p>
         </div> -->
         {% block footer %}
-        <nav class="tabs">
+        <nav class="tabs is-centered">
             <div class="container">
                 <ul>
-                    <li class="is-active"><a href="{% url 'blog:blog' %}">Chat Room</a></li>
-                    <li><a href="{% url 'hunter_diy_garage:reservation' %}">Reservations</a></li>
-                    <li><a href="{% url 'hunter_diy_garage:tools' %}">Special Tools</a></li>
-                    <li><a href="{% url 'hunter_diy_garage:bays' %}">Bay Details</a></li>
-                    <li><a href="{% url 'hunter_diy_garage:contact' %}">Contact</a></li>
-                    <li><a href="{% url 'hunter_diy_garage:layout' %}">Layout</a></li>
-                    <li><a href="{% url 'hunter_diy_garage:rules' %}">Rules</a></li>
+                    <li class="is-active">
+                        <a href="{% url 'blog:blog' %}">
+                            <span class="icon is-small"><i class="fas fa-comments" aria-hidden="true"></i></span>
+                            <span>Chat Room</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'reservations:reservations' %}">
+                            <span class="icon is-small"><i class="fas fa-calendar-check" aria-hidden="true"></i></span>
+                            <span>Reservations</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'hunter_diy_garage:tools' %}">
+                            <span class="icon is-small"><i class="fas fa-tools" aria-hidden="true"></i></span>
+                            <span>Special Tools</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'hunter_diy_garage:bays' %}">
+                            <span class="icon is-small"><i class="fas fa-air-freshener" aria-hidden="true"></i></span>
+                            <span>Auto Bays Details</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'hunter_diy_garage:contact' %}">
+                            <span class="icon is-small"><i class="fas fa-address-book" aria-hidden="true"></i></span>
+                            <span>Contact</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'hunter_diy_garage:layout' %}">
+                            <span class="icon is-small"><i class="fas fa-directions" aria-hidden="true"></i></span>
+                            <span>Layout</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'hunter_diy_garage:rules' %}">
+                            <span class="icon is-small"><i class="fas fa-book-open" aria-hidden="true"></i></span>
+                            <span>Rules</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </nav>

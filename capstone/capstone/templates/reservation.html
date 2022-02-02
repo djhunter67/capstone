@@ -3,4 +3,61 @@
 
 {% block content %}
 <h1 class="title">Reservations</h1>
+
+<!-- {% for field in form  %}
+
+{{field}}
+    
+{% endfor %} -->
+
+<form action="{% url 'reservations:reservations' %}" method="POST">
+    <div class="my-5">
+
+        {% csrf_token %}
+
+        <div class="select">
+                <!-- <p class="control is-expanded has-icons-left"> -->
+                <!-- <label for="id_username">{{form.username.label}}</label> -->
+                {{form.reservation_date}}
+                <!-- <span class="icon is-small is-left">
+                    <i class="fas fa-user"></i>
+                </span>
+            </p> -->
+        </div>
+        <br>
+        <div class="select">
+            <!-- <p class="control has-icons-left"> -->
+                <!-- <label for="id_password">Password</label> -->
+                {{form.time_limit}}
+                <!-- <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span> -->
+            <!-- </p> -->
+        </div>
+        <br>
+        <div class="select">
+            <!-- <p class="control has-icons-left"> -->
+                <!-- <label for="id_password">Bay Selection</label> -->
+                {{form.auto_bay_id}}
+                <!-- <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                </span> -->
+            <!-- </p> -->
+        </div>
+        <br>
+        {% if errors %}
+        <div class="notification is-danger">
+            {{errors}}
+
+            <button class="delete"></button>
+        </div>
+        {% endif %}
+        <br>
+        <div class="field my-4">
+            <button type="submit" class="button is-success">
+                Reserve
+            </button>
+        </div>
+    </div>
+</form>
 {% endblock content %}

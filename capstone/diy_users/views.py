@@ -70,7 +70,7 @@ def register(request):
         # context = {
         #     "form": UserCreationsForm()
         # }
-        return redirect(reverse('diy_users:profile'))
+        return redirect(reverse('hunter_diy_garage:index'))
 
     context = {
         "form": UserCreationsForm(),
