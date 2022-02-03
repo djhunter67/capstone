@@ -35,11 +35,16 @@
         </div>
         {% endif %}
 
+        <input type="hidden" name="next_path" value="{{next_path}}">
+
         <div class="field">
             <button type="submit" class="button is-success">
                 Login
             </button>
         </div>
     </div>
+
+    
+
 </form>
 {% endblock content %}

@@ -6,7 +6,7 @@
 {% if request.user.is_authenticated %}
 <form action="{% url 'blog:create' %}" method="POST">
     {% csrf_token %}
-    <div>
+    <div class="">
         <div class="field is-horizontal">
             <div class="field-label is-normal">
                 <label class="label">Title</label>
@@ -19,41 +19,6 @@
                             <i class="fas fa-heading"></i>
                         </span>
                     </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Priority</label>
-            </div>
-            <div class="field-body">
-                <div class="field is-narrow">
-                    <div class="control">
-                        <div class="select is-fullwidth">
-                            <select name="priority">
-                                <option>High</option>
-                                <option selected>Regular</option>
-                                <option>Low</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="field is-horizontal">
-            <div class="field-label is-normal">
-                <label class="label">Subject</label>
-            </div>
-            <div class="field-body">
-                <div class="field">
-                    <div class="control">
-                        <input name="subject" class="input" type="text" placeholder="e.g. TIG Welding">
-                    </div>
-                   <!-- <p class="help is-danger">
-                        This field is required
-                    </p> -->
                 </div>
             </div>
         </div>

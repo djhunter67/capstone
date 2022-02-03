@@ -6,10 +6,12 @@ R = F.RESET
 
 
 class MakeReservationForm(forms.ModelForm):
-    
+
     # Choices == [(auto_bay_id, auto_bay_name), ...]
-    auto_bay_id = forms.ChoiceField(choices=[(i.id, i.name) for i in AutoBay.objects.all()])
+    auto_bay_id = forms.ChoiceField(
+        choices=[(i.id, i.name) for i in AutoBay.objects.all()])
     time_limit = forms.ChoiceField(choices=[(i, i) for i in range(1, 11)])
+    reservation_date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'])
 
     class Meta:
 
@@ -22,7 +24,7 @@ class MakeReservationForm(forms.ModelForm):
         ]
 
         widgets = {
-            "reservation_date": forms.SelectDateWidget(attrs={'class': 'date is-primary'}),
-            "auto_bay_id": forms.Select(attrs={'class': 'select'}),
-            "time_limit": forms.Select(attrs={'class': 'select'}),
+            "reservation_date": BootstrapDateTimePickerInput(),
+            "auto_bay_id": forms.Select(attrs={'class': ''}),
+            "time_limit": forms.Select(attrs={'class': ''}),
         }

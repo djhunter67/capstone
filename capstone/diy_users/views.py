@@ -6,13 +6,12 @@ from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.urls import reverse
-from diy_users.models import DIYUsers
 
 R = F.RESET
 
 
 @login_required
-def profile(request):
+def profile(request, username):
     """form for logging a user in; redirect to /profile/ after logging in"""
 
     if request.method == 'GET':
@@ -30,22 +29,26 @@ def login(request):
     """form for logging a user in;redirect to /profile/ after logging in"""
 
     if request.method == "GET":
+
         form = UserAuthorizeForm()
 
-        return render(request, 'login.html', {"form": form})
+        return render(request, 'login.html', {"form": form, "next_path": request.GET.get("next")})
+
+    next_path = request.POST.get("next_path")
 
     form = UserAuthorizeForm(initial=request.POST)
 
     username = form.initial.get('username')[0]
     password = form.initial.get('password')[0]
-    # print(f"{F.BLUE}{username}{password}{R}")
     user = authenticate(request, username=username, password=password)
     if user is not None:
         print(f"{F.GREEN}{user} Logged in!{R}")
         django_login(request, user)
-        return render(request, 'profile.html')
-    print(form.is_valid())
-    print(f"{F.RED}Returning errors{R} {F.YELLOW}{form.errors}{R}")
+
+        if next_path != "None":
+            return redirect(reverse(f"reservations:{next_path.strip('/')}"))
+
+        return redirect("profile", username=user)
 
     context = {
         "form": UserAuthorizeForm(),
@@ -69,21 +72,12 @@ def register(request):
         new_user.set_password(form.cleaned_data['password'])
         new_user.save()
 
-        # context = {
-        #     "form": UserCreationsForm()
-        # }
-
-        # Create a profile for the new user
-        # DIYUsers.objects.create(user=new_user)
-
         return redirect(reverse('diy_users:profile', kwargs={'username': new_user.username}))
-        # return redirect(reverse('diy_users:profile'))
 
     context = {
         "form": UserCreationsForm(),
         "errors": form.errors,
     }
-    print(f"{F.RED}{form.errors.as_json()}{R}")
 
     return render(request, "register.html", context)
 

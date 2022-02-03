@@ -3,4 +3,84 @@
 
 {% block content %}
 <h1 class="title">Edit</h1>
+
+{% if request.user.is_authenticated %}
+<form action="{% url 'blog:edit' %}" method="POST">
+    {% csrf_token %}
+    <div>
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Title</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control is-expanded has-icons-left">
+                        <input name="title" class="input" type="text" value="{{form.title}}">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-heading"></i>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Subject</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <input name="subject" class="input" type="text" placeholder="e.g. TIG Welding">
+                    </div>
+                    <!-- <p class="help is-danger">
+                        This field is required
+                    </p> -->
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Content</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <textarea name="content" class="textarea" value="{{form.body}}"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-primary">
+                            Save Changes
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+{% else %}
+
+<h1 class="
+title
+has-text-centered 
+is-capitalized 
+has-text-weight-bold 
+is-family-secondary 
+has-text-danger
+">
+    MUST BE LOGGED IN!</h1>
+
+{% endif %}
 {% endblock content %}

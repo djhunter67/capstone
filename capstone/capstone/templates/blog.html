@@ -38,19 +38,19 @@
                     <a class="navbar-item" href="{% url 'blog:create' %}">
                         Create
                     </a>
-                    <a class="navbar-item" href="{% url 'blog:edit' 1 %}">
+                    <!-- <a class="navbar-item" href="{% url 'blog:edit' 1 %}">
                         Edit
-                    </a>
+                    </a> -->
                     {% endif %}
 
                     <a class="navbar-item" href="{% url 'blog:search' %}">
                         Search
                     </a>
                     {% if request.user.is_authenticated %}
-                    <hr class="navbar-divider">
+                    <!-- <hr class="navbar-divider">
                     <a class="navbar-item" href="{% url 'blog:delete' 1 %}">
                         Delete
-                    </a>
+                    </a> -->
                     {% endif %}
 
                 </div>
@@ -81,6 +81,7 @@
 {% endblock header %}
 
 {% block content %}
+
 {% for post in posts %}
 
 <div class="card mb-4">
@@ -109,4 +110,5 @@
 </div>
 
 {% endfor %}
+
 {% endblock content %}

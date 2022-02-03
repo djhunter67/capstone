@@ -7,11 +7,11 @@ from django.urls import reverse
 
 
 def blog(request):
-    print("something")
+    """All of the created blog posts"""
+
     if request.method == 'GET':
 
         all_posts = BlogPost.objects.order_by('-date_created')
-        print(all_posts)
         return render(request, "blog.html", {"posts": all_posts})
 
 
@@ -30,7 +30,7 @@ def create(request):
     new_post.body = form["content"]
     new_post.save()
 
-    return redirect(reverse("diy_users:profile"))
+    return redirect(reverse("blog:blog"))
 
 
 def search(request):
@@ -39,15 +39,18 @@ def search(request):
     return render(request, "search.html")
 
 
-# @login_required
+@login_required
 def edit(request, blog_id):
     """form for editing an existing blog"""
 
-    return render(request, "edit.html")
+    specific_post = BlogPost.objects.filter(blog_id)
 
-# @login_required
+    return render(request, "edit.html", {"form": specific_post})
+
+
+@login_required
 def delete(request, blog_id):
-    """form for deleting a user's blog"""
+    """method to delete a user's blog"""
 
     blog = get_object_or_404(BlogPost, id=blog_id)
     blog.delete()

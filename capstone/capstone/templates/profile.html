@@ -42,9 +42,9 @@
                     <a class="navbar-item" href="{% url 'blog:search' %}">
                         Search
                     </a>
-                    <a class="navbar-item" href="{% url 'blog:edit' 1 %}">
+                    <!-- <a class="navbar-item" href="{% url 'blog:edit' 1 %}">
                         Edit
-                    </a>
+                    </a> -->
                     <hr class="navbar-divider">
                     <a class="navbar-item" href="{% url 'blog:delete' 1 %}">
                         Delete
@@ -81,31 +81,49 @@
 
 <h1 class="title is-primary">Hello {{user}}</h1>
 
+
 <div>
     {% for posts in user_data.blog_posts.all %}
-    <div class="card mb-4">
 
-        <div class="card-content">
-            <div class="media">
-                <div class="media-left">
-                    <figure class="image is-48x48">
-                        <img src="{% static 'img/default_avt.png' %}" alt="Placeholder image">
-                    </figure>
+    <form action="{% url 'blog:delete' posts.id %}" method="POST">
+        {% csrf_token %}
+        <div class="card mb-4">
+
+            <div class="card-content">
+                <div class="media">
+                    <div class="media-left">
+                        <figure class="image is-48x48">
+                            <img src="{% static 'img/default_avt.png' %}" alt="Placeholder image">
+                        </figure>
+                    </div>
+                    <div class="media-content">
+                        <p class="title is-4">{{posts.user}}</p>
+                        <p class="subtitle is-6">{{posts.title}}</p>
+                    </div>
                 </div>
-                <div class="media-content">
-                    <p class="title is-4">{{posts.user}}</p>
-                    <p class="subtitle is-6">{{posts.title}}</p>
+                <div class="content">
+                    {{posts.body}}
+                    <br>
+                    <br>
+                    <hr>
+                    <div class="is-flex is-justify-content-space-between">
+                        <time datetime="{posts.date_created}">{{posts.date_created}}</time>
+                        <div class="field is-grouped">
+                            <p class="control">
+                                <button class="button is-danger" type="submit">Delete</button>
+                            </p>
+                            <p class="control">
+                                <a href="{% url 'blog:edit' posts.id %}">
+                                    <button class="button is-link">Edit</button>
+                                </a>
+                            </p>
+                        </div>
+
+                    </div>
                 </div>
-            </div>
-            <div class="content">
-                {{posts.body}}
-                <br>
-                <br>
-                <hr>
-                <time datetime="2016-1-1">{{posts.date_created}}</time>
             </div>
         </div>
-    </div>
+    </form>
 
     {% endfor %}
 </div>

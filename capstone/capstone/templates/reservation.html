@@ -10,36 +10,37 @@
 
         {% csrf_token %}
 
+        <label class="label" for="{form.auto_bay_id}_id">Auto Bay Selection</label>
         <div class="select">
-                <!-- <p class="control is-expanded has-icons-left"> -->
-                <label for="{form.auto_bay_id}_id">Auto Bay Selection</label>
-                {{form.auto_bay_id}}
-                <!-- <span class="icon is-small is-left">
+            <!-- <p class="control is-expanded has-icons-left"> -->
+            {{form.auto_bay_id}}
+            <!-- <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                 </span>
             </p> -->
         </div>
-        
+
+        <label class="label" for="{form.time_limit}_id">Time Limit</label>
         <div class="select">
             <!-- <p class="control has-icons-left"> -->
-                <label class="" for="{form.time_limit}_id">Time Limit</label>
-                {{form.time_limit}}
-                <!-- <span class="icon is-small is-left">
+            {{form.time_limit}}
+            <!-- <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                 </span> -->
             <!-- </p> -->
         </div>
         <hr>
-        <div class="select">
+        <label class="label" for="{form.reservation_date}">Reservation Date</label>
+        <div class="date">
             <!-- <p class="control has-icons-left"> -->
-                <label for="{form.reservation_date}">Reservation Date</label>
-                {{form.reservation_date}}
-                <!-- <span class="icon is-small is-left">
+            
+            {{form.reservation_date}}
+            <!-- <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                 </span> -->
             <!-- </p> -->
         </div>
-        
+
         {% if errors %}
         <div class="notification is-danger">
             {{errors}}
@@ -47,7 +48,7 @@
             <button class="delete"></button>
         </div>
         {% endif %}
-        
+
         <div class="field much-margin">
             <button type="submit" class="button is-success is-fullwidth">
                 Reserve
