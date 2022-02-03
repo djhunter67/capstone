@@ -130,3 +130,5 @@ STATICFILES_DIRS = [BASE_DIR/"capstone/static"]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 AUTH_USER_MODEL = "diy_users.DIYUsers"
+
+LOGIN_URL = "/login/"

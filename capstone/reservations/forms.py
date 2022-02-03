@@ -9,6 +9,7 @@ class MakeReservationForm(forms.ModelForm):
     
     # Choices == [(auto_bay_id, auto_bay_name), ...]
     auto_bay_id = forms.ChoiceField(choices=[(i.id, i.name) for i in AutoBay.objects.all()])
+    time_limit = forms.ChoiceField(choices=[(i, i) for i in range(1, 11)])
 
     class Meta:
 
@@ -21,7 +22,7 @@ class MakeReservationForm(forms.ModelForm):
         ]
 
         widgets = {
-            "reservation_date": forms.SelectDateWidget(attrs={'class': 'date is-primary', 'placeholder': ''}),
-            "auto_bay_id": forms.Select(attrs={'class': 'select', 'placeholder': ''}),
-            "time_limit": forms.Select(attrs={'class': 'select', 'placeholder': ''}),
+            "reservation_date": forms.SelectDateWidget(attrs={'class': 'date is-primary'}),
+            "auto_bay_id": forms.Select(attrs={'class': 'select'}),
+            "time_limit": forms.Select(attrs={'class': 'select'}),
         }

@@ -4,11 +4,6 @@
 {% block content %}
 <h1 class="title">Reservations</h1>
 
-<!-- {% for field in form  %}
-
-{{field}}
-    
-{% endfor %} -->
 
 <form action="{% url 'reservations:reservations' %}" method="POST">
     <div class="my-5">
@@ -17,34 +12,34 @@
 
         <div class="select">
                 <!-- <p class="control is-expanded has-icons-left"> -->
-                <!-- <label for="id_username">{{form.username.label}}</label> -->
-                {{form.reservation_date}}
+                <label for="{form.auto_bay_id}_id">Auto Bay Selection</label>
+                {{form.auto_bay_id}}
                 <!-- <span class="icon is-small is-left">
                     <i class="fas fa-user"></i>
                 </span>
             </p> -->
         </div>
-        <br>
+        
         <div class="select">
             <!-- <p class="control has-icons-left"> -->
-                <!-- <label for="id_password">Password</label> -->
+                <label class="" for="{form.time_limit}_id">Time Limit</label>
                 {{form.time_limit}}
                 <!-- <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                 </span> -->
             <!-- </p> -->
         </div>
-        <br>
+        <hr>
         <div class="select">
             <!-- <p class="control has-icons-left"> -->
-                <!-- <label for="id_password">Bay Selection</label> -->
-                {{form.auto_bay_id}}
+                <label for="{form.reservation_date}">Reservation Date</label>
+                {{form.reservation_date}}
                 <!-- <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
                 </span> -->
             <!-- </p> -->
         </div>
-        <br>
+        
         {% if errors %}
         <div class="notification is-danger">
             {{errors}}
@@ -52,9 +47,9 @@
             <button class="delete"></button>
         </div>
         {% endif %}
-        <br>
-        <div class="field my-4">
-            <button type="submit" class="button is-success">
+        
+        <div class="field much-margin">
+            <button type="submit" class="button is-success is-fullwidth">
                 Reserve
             </button>
         </div>

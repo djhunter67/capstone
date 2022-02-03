@@ -1,10 +1,12 @@
-from django.contrib.auth import authenticate, login as django_login, logout as django_logout
-from django.shortcuts import render, redirect
-from django.urls import reverse
-from django.contrib.auth.decorators import login_required
 from capstone.forms import UserAuthorizeForm, UserCreationsForm
 from colorama import Fore as F
-
+from django.contrib.auth import authenticate
+from django.contrib.auth import login as django_login
+from django.contrib.auth import logout as django_logout
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import redirect, render
+from django.urls import reverse
+from diy_users.models import DIYUsers
 
 R = F.RESET
 
@@ -70,7 +72,12 @@ def register(request):
         # context = {
         #     "form": UserCreationsForm()
         # }
-        return redirect(reverse('hunter_diy_garage:index'))
+
+        # Create a profile for the new user
+        # DIYUsers.objects.create(user=new_user)
+
+        return redirect(reverse('diy_users:profile', kwargs={'username': new_user.username}))
+        # return redirect(reverse('diy_users:profile'))
 
     context = {
         "form": UserCreationsForm(),

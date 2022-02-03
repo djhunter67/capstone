@@ -1,4 +1,4 @@
-import bulmaCalendar from '~bulma-calendar/dist/js/bulma-calendar.min.js'
+import bulmaCalendar from '../../../mybulma/node_modules/bulma-calendar/'
 
 // Initialize all input of type date
 var calendars = bulmaCalendar.attach('[type="date"]', { startDate: new Date('10/24/2019') });

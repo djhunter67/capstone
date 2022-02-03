@@ -7872,3 +7872,6 @@ a.has-text-danger-dark:hover, a.has-text-danger-dark:focus {
   background-size: cover;
   background-position: 50% 50%;
   background-color: none; }
+
+.much-margin {
+  margin-top: 8rem; }
