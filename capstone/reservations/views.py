@@ -2,6 +2,11 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from reservations.forms import MakeReservationForm
 from django.contrib.auth.decorators import login_required
+from colorama import Fore as F
+
+
+R = F.RESET
+
 
 # Create your views here.
 
@@ -19,13 +24,18 @@ def reservations(request):
 
     form = MakeReservationForm(data=request.POST)
 
-    print(form.is_valid())
-    print(form.errors.as_json())
+    print(f'Bay: {F.YELLOW}{form["auto_bay_id"].data}{R}')
+    print(f'Time: {F.BLUE}{form["time_limit"].data}{R} Hours')
+    print(f'{F.BLUE}{form["reservation_date"].data}{R}')
+    # print(form.is_valid())
+    print(f"{F.RED}{form.errors.as_text()}{R}")
     if form.is_valid():
         print("VALID!!!!")
-        form.save()
 
-        print(form.base_fields)
+        reservation = form.save(commit=False)
+        reservation.diy_user_id = request.user
+        reservation.save()
 
+    # print(form.base_fields)
 
     return redirect(reverse("hunter_diy_garage:index"))

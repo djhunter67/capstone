@@ -1,17 +1,26 @@
 from django import forms
 from .models import Reservation, AutoBay
-from colorama import Fore as F
+from django.utils import timezone
+# from bootstrap_datepicker_plus import DatePickerInput
 
-R = F.RESET
+
+class DateInput(forms.DateTimeInput):
+    input_type = 'datetime-local'
+    input_formats = "['%d/%m/%Y %H:%M']"
 
 
 class MakeReservationForm(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super(MakeReservationForm, self).__init__(*args, **kwargs)
+        self.initial['reservation_date'] = timezone.now()
+
     # Choices == [(auto_bay_id, auto_bay_name), ...]
     auto_bay_id = forms.ChoiceField(
-        choices=[(i.name, i.name) for i in AutoBay.objects.all()])
+        choices=[(i.id, i.name) for i in AutoBay.objects.all()])
     time_limit = forms.ChoiceField(choices=[(i, i) for i in range(1, 11)])
-    reservation_date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'])
+    # reservation_date = forms.DateTimeField(options={"format": "mm/dd/yyyy",
+    #                                             "autoclose": True})
 
     class Meta:
 
@@ -24,7 +33,7 @@ class MakeReservationForm(forms.ModelForm):
         ]
 
         widgets = {
-            # "reservation_date": BootstrapDateTimePickerInput(),
-            "auto_bay_id": forms.Select(attrs={'class': ''}),
-            "time_limit": forms.Select(attrs={'class': ''}),
+            "reservation_date": DateInput()
+            # "auto_bay_id": forms.Select(attrs={'class': ''}),
+            # "time_limit": forms.Select(attrs={'class': ''}),
         }

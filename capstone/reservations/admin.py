@@ -5,6 +5,6 @@ from .models import Reservation
 
 class ReservationAdmin(admin.ModelAdmin):
 
-    list_display = ('electricity_used', 'hours_used', 'date_reserved', 'auto_bay_id', 'diy_user_id')
+    list_display = ('reservation_date', 'date_reserved','time_limit', 'auto_bay_id', 'diy_user_id')
 
 admin.site.register(Reservation, ReservationAdmin)

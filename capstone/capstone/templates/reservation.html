@@ -10,7 +10,7 @@
 
         {% csrf_token %}
 
-        <label class="label" for="{form.auto_bay_id}_id">Auto Bay Selection</label>
+        <label class="label">Auto Bay Selection</label>
         <div class="select">
             <!-- <p class="control is-expanded has-icons-left"> -->
             {{form.auto_bay_id}}
@@ -20,7 +20,7 @@
             </p> -->
         </div>
 
-        <label class="label" for="{form.time_limit}_id">Time Limit</label>
+        <label class="label">Time Limit (Hours)</label>
         <div class="select">
             <!-- <p class="control has-icons-left"> -->
             {{form.time_limit}}
@@ -30,10 +30,10 @@
             <!-- </p> -->
         </div>
         <hr>
-        <label class="label" for="{form.reservation_date}">Reservation Date</label>
+        <label class="label">Reservation Date</label>
         <div class="date">
             <!-- <p class="control has-icons-left"> -->
-            
+
             {{form.reservation_date}}
             <!-- <span class="icon is-small is-left">
                     <i class="fas fa-lock"></i>
