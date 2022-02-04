@@ -24,7 +24,7 @@ class MakeReservationForm(forms.ModelForm):
         ]
 
         widgets = {
-            "reservation_date": BootstrapDateTimePickerInput(),
+            # "reservation_date": BootstrapDateTimePickerInput(),
             "auto_bay_id": forms.Select(attrs={'class': ''}),
             "time_limit": forms.Select(attrs={'class': ''}),
         }

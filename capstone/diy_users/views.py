@@ -35,6 +35,7 @@ def login(request):
         return render(request, 'login.html', {"form": form, "next_path": request.GET.get("next")})
 
     next_path = request.POST.get("next_path")
+    # print(next_path.split('/'))
 
     form = UserAuthorizeForm(initial=request.POST)
 
@@ -46,9 +47,12 @@ def login(request):
         django_login(request, user)
 
         if next_path != "None":
-            return redirect(reverse(f"reservations:{next_path.strip('/')}"))
+            try:
+                return redirect(reverse(f"reservations:{next_path.strip('/')}"))
+            except:
+                return redirect(reverse(f"diy_users:{next_path.split('/')[1]}", args=[next_path.split('/')[2]]))
 
-        return redirect("profile", username=user)
+        return redirect(reverse("diy_users:profile", args=[user.username]))
 
     context = {
         "form": UserAuthorizeForm(),
@@ -68,9 +72,12 @@ def register(request):
     form = UserCreationsForm(data=request.POST)
 
     if form.is_valid():
-        new_user = form.save(commit=False)
-        new_user.set_password(form.cleaned_data['password'])
-        new_user.save()
+        # new_user = form.save(commit=False)
+        # new_user.set_password(form.cleaned_data['password'])
+        # new_user.save()
+        new_user = form.save()
+        
+
 
         return redirect(reverse('diy_users:profile', kwargs={'username': new_user.username}))
 
