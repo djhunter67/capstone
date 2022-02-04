@@ -17,9 +17,15 @@ def reservations(request):
 
     print(request.POST)
 
-    form = MakeReservationForm(initial=request.POST)
+    form = MakeReservationForm(data=request.POST)
 
-    # if form.is_valid():
-    #     print("Valid")
+    print(form.is_valid())
+    print(form.errors.as_json())
+    if form.is_valid():
+        print("VALID!!!!")
+        form.save()
+
+        print(form.base_fields)
+
 
     return redirect(reverse("hunter_diy_garage:index"))

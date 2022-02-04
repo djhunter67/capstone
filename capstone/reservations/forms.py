@@ -9,7 +9,7 @@ class MakeReservationForm(forms.ModelForm):
 
     # Choices == [(auto_bay_id, auto_bay_name), ...]
     auto_bay_id = forms.ChoiceField(
-        choices=[(i.id, i.name) for i in AutoBay.objects.all()])
+        choices=[(i.name, i.name) for i in AutoBay.objects.all()])
     time_limit = forms.ChoiceField(choices=[(i, i) for i in range(1, 11)])
     reservation_date = forms.DateTimeField(input_formats=['%d/%m/%Y %H:%M'])
 

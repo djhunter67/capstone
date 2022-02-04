@@ -43,9 +43,21 @@ def search(request):
 def edit(request, blog_id):
     """form for editing an existing blog"""
 
-    specific_post = BlogPost.objects.filter(blog_id)
+    post = get_object_or_404(BlogPost, id=blog_id)
 
-    return render(request, "edit.html", {"form": specific_post})
+    if request.method == "GET":
+
+        return render(request, "edit.html", {"form": post})
+
+    
+    form = request.POST
+
+    post.user = request.user
+    post.title = form["title"]
+    post.body = form["content"]
+    post.save()
+
+    return redirect(reverse("diy_users:profile", args=[request.user]))
 
 
 @login_required
@@ -55,4 +67,4 @@ def delete(request, blog_id):
     blog = get_object_or_404(BlogPost, id=blog_id)
     blog.delete()
 
-    return redirect(reverse('diy_users:profile'))
+    return redirect(reverse('diy_users:profile', args=[request.user]))
