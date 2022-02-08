@@ -1,3 +1,4 @@
+from random import choice
 from django import forms
 from .models import Reservation, AutoBay
 from django.utils import timezone
@@ -6,7 +7,7 @@ from django.utils import timezone
 
 class DateInput(forms.DateTimeInput):
     input_type = 'datetime-local'
-    input_formats = "['%d/%m/%Y %H:%M']"
+    input_format = "['%d/%m/%Y %I:%M:%S']"
 
 
 class MakeReservationForm(forms.ModelForm):
@@ -14,11 +15,12 @@ class MakeReservationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(MakeReservationForm, self).__init__(*args, **kwargs)
         self.initial['reservation_date'] = timezone.now()
-
+    
     # Choices == [(auto_bay_id, auto_bay_name), ...]
-    auto_bay_id = forms.ChoiceField(
-        choices=[(i.id, i.name) for i in AutoBay.objects.all()])
-    time_limit = forms.ChoiceField(choices=[(i, i) for i in range(1, 11)])
+    auto_bay_id = forms.ModelChoiceField(
+        queryset=AutoBay.objects.all())
+
+    time_limit = forms.ChoiceField(choices=[(i, f"{i} hrs.") for i in range(1, 11)])
     # reservation_date = forms.DateTimeField(options={"format": "mm/dd/yyyy",
     #                                             "autoclose": True})
 

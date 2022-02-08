@@ -13,9 +13,7 @@ class Reservation(models.Model):
         default=0.0, max_digits=5, decimal_places=2)
     hours_used = models.DecimalField(
         default=0.0, max_digits=5, decimal_places=2)
-    # auto_bay_id = models.ForeignKey(
-    # AutoBay, on_delete=models.SET_NULL, null=True, related_name="reservations", to_field="name", unique=True)
-    auto_bay_id = models.OneToOneField(
+    auto_bay_id = models.ForeignKey(
         AutoBay, on_delete=models.SET_NULL, null=True, related_name="reservations")
     diy_user_id = models.ForeignKey(
         DIYUsers, on_delete=models.CASCADE, related_name="reservations")
