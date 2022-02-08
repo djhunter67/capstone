@@ -56,11 +56,11 @@ Can only checkout tools if have a reservation.
 
 - [ ] Week 3
     - [ ] JS all the forms
-    - [ ] User login & logout functional
+    - [X] User login & logout functional
     - [ ] Backend fully functional 
 
 - [ ] Week 4
     - [ ] Publish and self host (already purchased domain)
 
-- [ ] After
-    - [ ] Use a Calendar for picking the dates
+- [X] After
+    - [X] Use a Calendar for picking the dates
