@@ -19,7 +19,7 @@ def profile(request, username):
         user_data = request.user
 
         context = {
-            "user_data": user_data,
+            "user_data": user_data,            
         }
 
         return render(request, "profile.html", context)

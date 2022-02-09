@@ -39,16 +39,13 @@ class Tool(models.Model):
         return self.name
 
 
-# class NeedleScaler(Tool):
+class PaymentCenter(models.Model):
 
-#     pass
+    from diy_users.models import DIYUsers
 
+    user = models.ForeignKey(
+        DIYUsers, on_delete=models.CASCADE)
 
-# class TorqueWrench(Tool):
-
-#     pass
-
-
-# class Welder(Tool):
-
-#     pass
+    card_number = models.IntegerField(unique=True)
+    expiration = models.DateField(auto_now=True)
+    security_code = models.IntegerField()

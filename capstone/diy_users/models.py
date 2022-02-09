@@ -23,11 +23,11 @@ class DIYUsers(AbstractUser):
     first_name = models.CharField(_('first name'), max_length=150, blank=False)
     last_name = models.CharField(_('last name'), max_length=150, blank=False)
     email = models.EmailField(_('email address'), blank=False)
+    reservation = models.BooleanField()
 
     def __str__(self) -> str:
         return self.username
 
-    def save(self, *args, **kwargs):
-        self.set_password(self.password)
-        super(DIYUsers, self).save(*args, **kwargs)
-
+    # def save(self, *args, **kwargs):
+    #     self.set_password(self.password)
+    #     super(DIYUsers, self).save(*args, **kwargs)

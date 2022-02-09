@@ -1,7 +1,10 @@
 from django.contrib import admin
-from django.contrib.auth.admin import UserAdmin
 from .models import DIYUsers
 
 # Register your models here.
 
-admin.site.register(DIYUsers, UserAdmin)
+class DIYUsersAdmin(admin.ModelAdmin):
+
+    list_display = ('username', 'email', 'first_name', 'phone_number', 'reservation', 'date_added')
+
+admin.site.register(DIYUsers, DIYUsersAdmin)

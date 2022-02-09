@@ -20,3 +20,4 @@ class Reservation(models.Model):
     date_reserved = models.DateTimeField(auto_now_add=True)
     reservation_date = models.DateTimeField()
     time_limit = models.IntegerField(default=0)
+    # reservation_true = models.ForeignKey(DIYUsers, default=False ,on_delete=models.CASCADE, related_name="reserved")

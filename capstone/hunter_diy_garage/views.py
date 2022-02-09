@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from .models import Tool
+from django.shortcuts import redirect, render
+from django.urls import reverse
+from .models import PaymentCenter, Tool
 
 # Create your views here.
 
@@ -58,3 +59,20 @@ def rules(request):
     ruleset = ["Be Kind", "Do Unto Others", "Love Thy Neighbor"]
 
     return render(request, "rules.html", {"ruleset": ruleset})
+
+def payment(request):
+
+    if request.method == 'GET':
+        return render(request, "payment.html")
+
+    # form = request.POST
+
+    # new_purchase = PaymentCenter()
+    # new_purchase.user = request.user
+    # new_purchase.card_number = form["cardnumber"]
+    # new_purchase.expiration = form["expirationdate"]
+    # new_purchase.security_code = form["securitycode"]
+
+    # new_purchase.save()
+
+    # return redirect(reverse("diy_user:profile"))
