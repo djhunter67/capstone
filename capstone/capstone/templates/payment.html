@@ -113,6 +113,7 @@
     </div>
 </div>
 <form action="{% url 'hunter_diy_garage:payment' %}" method="POST">
+    {% csrf_token %}
     <div class="form-container">
         <div class="field-container">
             <label for="name">Name</label>
@@ -135,7 +136,7 @@
             <input id="securitycode" type="text" pattern="[0-9]*" inputmode="numeric">
         </div>
         <div class="field-container">
-            <button disabled="disabled">
+            <button type="submit">
                 Submit
             </button>
         </div>

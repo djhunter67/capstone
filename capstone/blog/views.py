@@ -36,7 +36,11 @@ def create(request):
 def search(request):
     """form presented to search for a blog"""
 
-    return render(request, "search.html")
+    if request.method == 'GET':
+        return render(request, "search.html")
+
+    form = request.POST
+    print(form)
 
 
 @login_required

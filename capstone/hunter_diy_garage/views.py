@@ -65,7 +65,8 @@ def payment(request):
     if request.method == 'GET':
         return render(request, "payment.html")
 
-    # form = request.POST
+    form = request.POST
+    print(form)
 
     # new_purchase = PaymentCenter()
     # new_purchase.user = request.user
