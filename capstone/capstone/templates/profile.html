@@ -107,7 +107,8 @@
                 <hr>
                 <div class="is-flex is-justify-content-space-between">
                     <time datetime="{posts.date_created}">{{posts.date_created}}</time>
-                    {{posts.user.reservation}}
+                    <p>Reservation Made: {{posts.user.reservation}}</p>
+                    
                     <div class="field is-grouped">
                         <p class="control">
                         <form action="{% url 'blog:delete' posts.id %}" method="POST">
@@ -117,7 +118,7 @@
                         </p>
                         <p class="control">
                             <a href="{% url 'blog:edit' posts.id %}">
-                                <button id="edit_btn" class="button is-link">Edit</button>
+                                <button id="edit_btn" class="button is-link ml-2">Edit</button>
                             </a>
                         </p>
                     </div>

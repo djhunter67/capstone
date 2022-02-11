@@ -35,6 +35,17 @@
         </div>
         {% endif %}
 
+        {% if messages %}
+
+        <div id="msgDiv" class="notification is-primary">
+            {% for message in messages %}
+            {{message}}
+            {% endfor %}
+            <button id="delete_msg" class="delete"></button>
+        </div>
+
+        {% endif %}
+
         <input type="hidden" name="next_path" value="{{next_path}}">
 
         <div class="field">
@@ -44,7 +55,7 @@
         </div>
     </div>
 
-    
+
 
 </form>
 {% endblock content %}

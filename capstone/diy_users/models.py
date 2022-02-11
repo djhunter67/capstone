@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import RegexValidator
+from django.forms import NullBooleanField
 from django.utils.translation import gettext_lazy as _
 
 
@@ -13,7 +14,7 @@ def upload_path(instance, filename):
 class DIYUsers(AbstractUser):
 
     phone_regex = RegexValidator(
-        regex=r'\d{10}', message="Phone number must be entered in the format: '+999999999'. 10 digits allowed.")
+        regex=r'^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$', message="Phone number must be entered in the format: '+999999999'. 10 digits allowed.")
     phone_number = models.CharField(
         validators=[phone_regex], max_length=17, blank=False)  # validators should be a list
     date_added = models.DateField(auto_now_add=True)
@@ -23,11 +24,11 @@ class DIYUsers(AbstractUser):
     first_name = models.CharField(_('first name'), max_length=150, blank=False)
     last_name = models.CharField(_('last name'), max_length=150, blank=False)
     email = models.EmailField(_('email address'), blank=False)
-    reservation = models.BooleanField()
+    reservation = models.BooleanField(default=False)
 
     def __str__(self) -> str:
         return self.username
 
-    # def save(self, *args, **kwargs):
-    #     self.set_password(self.password)
-    #     super(DIYUsers, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs):
+        self.set_password(self.password)
+        super(DIYUsers, self).save(*args, **kwargs)

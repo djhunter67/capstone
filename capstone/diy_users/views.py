@@ -6,6 +6,7 @@ from django.contrib.auth import logout as django_logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.urls import reverse
+from django.contrib import messages
 
 R = F.RESET
 
@@ -75,8 +76,11 @@ def register(request):
         # new_user = form.save(commit=False)
         # new_user.set_password(form.cleaned_data['password'])
         # new_user.save()
-        new_user = form.save()
         
+        new_user = form.save()
+        # new_user.reservation = False
+
+        messages.add_message(request, messages.SUCCESS, f"Registration Successful {new_user.username}! You may now log in.")
 
 
         return redirect(reverse('diy_users:profile', kwargs={'username': new_user.username}))

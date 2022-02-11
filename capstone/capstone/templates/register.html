@@ -76,20 +76,22 @@
     </div>
 
     {% if errors %}
-    <div class="notification is-danger">
+    <div id="msgDiv" class="notification is-danger">
         {% for error, erra in errors.items %}
         {{erra}}
 
         {% endfor %}
-        <button class="delete"></button>
+        <button id="delete_msg" class="delete"></button>
     </div>
 
 
     {% endif %}
 
+    
+
     <div class="field">
         <p class="control">
-            <button type="submit" class="button is-success ">Register</button>
+            <button type="submit" class="button">Register</button>
         </p>
     </div>
 </form>

@@ -18,11 +18,11 @@ class UserForms(forms.ModelForm):
         widgets = {
             "first_name": forms.TextInput(attrs={'class': 'input', 'placeholder': 'First Name'}),
             "last_name": forms.TextInput(attrs={'class': ' input', 'placeholder': 'Last Name'}),
-            "phone_number": forms.TextInput(attrs={'class': ' input', 'placeholder': '5555555555', 'type': 'tel', 'pattern': "\d{10}"}),
+            "phone_number": forms.TextInput(attrs={'id': 'phNumber', 'class': ' input', 'placeholder': '(555) 555-5555', 'type': 'tel', 'pattern': "^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$"}),
             "username": forms.TextInput(attrs={'class': 'input', 'placeholder': 'Username'}),
             "password": forms.PasswordInput(attrs={'class': 'input', 'placeholder': 'Password'}),
             "avatar": forms.FileInput(attrs={'class': 'control file has-name is-right'}),
-            "email": forms.EmailInput(attrs={'class': 'input', 'placeholder': 'Email', 'type':'email'}),
+            "email": forms.EmailInput(attrs={'class': 'input', 'placeholder': 'Email', 'type': 'email'}),
         }
 
 

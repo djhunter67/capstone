@@ -4,7 +4,7 @@
 {% block content %}
 
 {% if request.user.is_authenticated %}
-<form action="{% url 'blog:create' %}" method="POST">
+<form id="create_form" action="{% url 'blog:create' %}" method="POST">
     {% csrf_token %}
     <div class="">
         <div class="field is-horizontal">
@@ -14,7 +14,7 @@
             <div class="field-body">
                 <div class="field">
                     <p class="control is-expanded has-icons-left">
-                        <input name="title" class="input" type="text" placeholder="Title">
+                        <input name="title" class="input" type="text" placeholder="Title" required>
                         <span class="icon is-small is-left">
                             <i class="fas fa-heading"></i>
                         </span>
@@ -43,7 +43,7 @@
             <div class="field-body">
                 <div class="field">
                     <div class="control">
-                        <button type="submit" class="button is-primary">
+                        <button id="createBtn" type="submit" class="button is-primary">
                             Create
                         </button>
                     </div>
