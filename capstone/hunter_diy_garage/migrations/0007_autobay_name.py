@@ -14,7 +14,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='autobay',
             name='name',
-            field=models.CharField(default=django.utils.timezone.now, max_length=10),
+            field=models.CharField(default=django.utils.timezone.now, max_length=50),
             preserve_default=False,
         ),
     ]
