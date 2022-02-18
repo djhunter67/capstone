@@ -64,3 +64,13 @@ Can only checkout tools if have a reservation.
 
 - [X] After
     - [X] Use a Calendar for picking the dates
+
+
+# Installation
+
+`pip install -r requirements.txt`
+
+`python manage.py migrate`
+
+`python manage.py runserver`
+
