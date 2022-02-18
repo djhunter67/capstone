@@ -67,7 +67,7 @@ Can only checkout tools if have a reservation.
 
 # Installation
 
-`pip install -r requirements.txt`
+`pip install -r capstone/capstone/requirements.txt`
 
 `python manage.py migrate`
 
