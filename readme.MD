@@ -67,6 +67,8 @@ Can only checkout tools if have a reservation.
 
 # Installation
 
+`sudo apt-get install libpq-dev python-dev`
+
 `pip install -r capstone/capstone/requirements.txt`
 
 `python manage.py migrate`
