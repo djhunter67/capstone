@@ -73,9 +73,9 @@ def register(request):
     form = UserCreationsForm(data=request.POST)
 
     if form.is_valid():
-        # new_user = form.save(commit=False)
-        # new_user.set_password(form.cleaned_data['password'])
-        # new_user.save()
+        new_user = form.save(commit=False)
+        new_user.set_password(form.cleaned_data['password'])
+        new_user.save()
         
         new_user = form.save()
         # new_user.reservation = False

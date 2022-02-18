@@ -29,6 +29,6 @@ class DIYUsers(AbstractUser):
     def __str__(self) -> str:
         return self.username
 
-    def save(self, *args, **kwargs):
-        self.set_password(self.password)
-        super(DIYUsers, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     self.set_password(self.password)
+    #     super(DIYUsers, self).save(*args, **kwargs)

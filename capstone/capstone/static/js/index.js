@@ -42,6 +42,15 @@ textBoxInput[0].addEventListener('keydown', function(event) {
     }
 })   
 
+// Calendar Stuff
+let selectMenu = document.querySelector('#id_auto_bay_id')
+//event listener for when value changes
+if (selectMenu) {
+    selectMenu.oninput = function() {
+        console.log(selectMenu)
+    }
+}
+
 
 
 // CC payment section

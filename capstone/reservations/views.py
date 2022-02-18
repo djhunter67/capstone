@@ -19,10 +19,13 @@ def reservations(request):
     if request.method == "GET":
 
         form = MakeReservationForm()
+        
 
         return render(request, "reservation.html", {"form": form})
 
     form = request.POST
+
+    # API Call to JS
 
     print(f"{F.LIGHTGREEN_EX}{form}{R}")
     form = MakeReservationForm(form)

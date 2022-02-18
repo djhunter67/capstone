@@ -16,6 +16,7 @@ Including another URLconf
 # from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import include, path
+from django.views.generic import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,4 +24,6 @@ urlpatterns = [
     path('', include('diy_users.urls')),
     path('blog/', include('blog.urls')),
     path('reservations/', include('reservations.urls')),
+    # Favicon Error was driving me crazy
+    path('favicon.ico', RedirectView.as_view(url='/static/images/favicon.ico')),
 ]

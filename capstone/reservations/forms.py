@@ -7,7 +7,7 @@ from django.utils import timezone
 
 class DateInput(forms.DateTimeInput):
     input_type = 'datetime-local'
-    input_format = "['%d/%m/%Y %I:%M:%S']"
+    input_format = "['%d/%m/%Y %I:%M']"
 
 
 class MakeReservationForm(forms.ModelForm):
