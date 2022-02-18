@@ -13,8 +13,7 @@ A company that hosts several bays inside of an automotive garage.  Each Bay is c
 
 ### Features
 
-- [ ] Book and bay in advance
-- [ ] Pay in advance
+- [ ] Book and pay in advance
 - [ ] Track tool use hours
 - [ ] Log tool checkout
 - [ ] Refund canceled reservation if w/in cancellation policy guidelines
