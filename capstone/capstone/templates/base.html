@@ -42,27 +42,6 @@
                 </a>
                 {% endif %}
 
-                <!-- <div class="navbar-item has-dropdown is-hoverable">
-                    <a class="navbar-link">
-                        More
-                    </a>
-
-                    <div class="navbar-dropdown">
-                        <a class="navbar-item" href="">
-                            Create
-                        </a>
-                        <a class="navbar-item" href="">
-                            Search
-                        </a>
-                        <a class="navbar-item" href="">
-                            Edit
-                        </a>
-                        <hr class="navbar-divider">
-                        <a class="navbar-item" href="">
-                            Delete
-                        </a>
-                    </div>
-                </div> -->
             </div>
 
             <div class="navbar-end">
@@ -102,11 +81,7 @@
 
     <!-- UNIVERSAL FOOTER -->
     <footer class="footer">
-        <!-- <div class="content has-text-centered">
-            <p>
-                <strong>Hunter DIY Garage</strong> by <a href="#">Christerpher Hunter</a>.
-            </p>
-        </div> -->
+
         {% block footer %}
         <nav class="tabs is-centered">
             <div class="container">
@@ -151,6 +126,12 @@
                         <a href="{% url 'hunter_diy_garage:rules' %}">
                             <span class="icon is-small"><i class="fas fa-book-open" aria-hidden="true"></i></span>
                             <span>Rules</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="navbar-item" href="{% url 'hunter_diy_garage:about' %}">
+                            <span class="icon"><i class="fa fa-info-circle" aria-hidden="true"></i></span>
+                            <span>About</span>
                         </a>
                     </li>
                 </ul>
