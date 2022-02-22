@@ -3,4 +3,57 @@
 
 {% block content %}
 <h1 class="title">Contact</h1>
+
+<h2 class="subtitle"><strong>Help</strong></h2>
+<p>For help please contact Hunter DIY Garage help with an email.
+</p>
+<br>
+<br>
+<form id="create_form" action="" method="POST">
+    <div class="">
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Title</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <p class="control is-expanded has-icons-left">
+                        <input name="title" class="input" type="text" placeholder="Title" required>
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-heading"></i>
+                        </span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label is-normal">
+                <label class="label">Content</label>
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <textarea name="content" class="textarea" placeholder="300 Word Limit"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="field is-horizontal">
+            <div class="field-label">
+                <!-- Left empty for spacing -->
+            </div>
+            <div class="field-body">
+                <div class="field">
+                    <div class="control">
+                        <button id="createBtn" type="submit" class="button is-primary">
+                            Create
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 {% endblock content %}
