@@ -7,6 +7,10 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.contrib import messages
+from datetime import datetime
+
+from reservations.models import Reservation
+
 
 R = F.RESET
 
@@ -20,7 +24,8 @@ def profile(request, username):
         user_data = request.user
 
         context = {
-            "user_data": user_data,            
+            "user_data": user_data,
+            "res": Reservation.objects.order_by('-reservation_date')[0],         
         }
 
         return render(request, "profile.html", context)

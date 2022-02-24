@@ -7,7 +7,10 @@
 
 {% for tool in tools %}
 
+<img src="{% static 'img/many_tools.jpeg' %}" alt="{{tool.name|lower}}">
 <strong>{{tool.name}}</strong>
+<br>
+<br>
 
 {% endfor %}
 

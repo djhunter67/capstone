@@ -1,4 +1,3 @@
-from unicodedata import name
 from django.db import models
 from diy_users.models import DIYUsers
 
@@ -21,3 +20,6 @@ class Reservation(models.Model):
     reservation_date = models.DateTimeField()
     time_limit = models.IntegerField(default=0)
     # reservation_true = models.ForeignKey(DIYUsers, default=False ,on_delete=models.CASCADE, related_name="reserved")
+
+    def __str__(self) -> str:
+        return str(self.reservation_date)

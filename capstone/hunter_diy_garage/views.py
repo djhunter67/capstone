@@ -76,4 +76,4 @@ def payment(request):
 
     # new_purchase.save()
 
-    # return redirect(reverse("diy_user:profile"))
+    return redirect(reverse("diy_users:profile", args=[request.user]))
